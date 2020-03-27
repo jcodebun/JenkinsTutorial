@@ -63,21 +63,91 @@ namespace SpeclowTutorial
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        public virtual void AddTwoNumbers()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
 #line 3
-this.ScenarioSetup(scenarioInfo);
 #line 4
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I navigate to URl", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 6
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I click to Input form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Fill the Input form")]
+        [NUnit.Framework.TestCaseAttribute("Hello", null)]
+        [NUnit.Framework.TestCaseAttribute("Codebun", null)]
+        [NUnit.Framework.TestCaseAttribute("CodeDec", null)]
+        public virtual void FillTheInputForm(string msg, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fill the Input form", exampleTags);
+#line 8
+ this.ScenarioSetup(scenarioInfo);
+#line 3
+this.FeatureBackground();
+#line 9
+ testRunner.Given("User is on the input form Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.When(string.Format("User enter {0} in input", msg), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.And("User click to Show button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.Then("User can see the text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Fill the Input form using Table")]
+        public virtual void FillTheInputFormUsingTable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fill the Input form using Table", ((string[])(null)));
+#line 20
+ this.ScenarioSetup(scenarioInfo);
+#line 3
+this.FeatureBackground();
+#line 21
+ testRunner.Given("User is on the input form Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Msg",
+                        "msg2"});
+            table1.AddRow(new string[] {
+                        "Hello",
+                        "fgfg"});
+            table1.AddRow(new string[] {
+                        "Codebun",
+                        "hg"});
+            table1.AddRow(new string[] {
+                        "CodeDec",
+                        "hgh"});
+#line 22
+ testRunner.When("User enter Msg in input", ((string)(null)), table1, "When ");
+#line 27
+ testRunner.And("User click to Show button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.Then("User can see the text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Fill the Input form using Param")]
+        public virtual void FillTheInputFormUsingParam()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fill the Input form using Param", ((string[])(null)));
+#line 31
+ this.ScenarioSetup(scenarioInfo);
+#line 3
+this.FeatureBackground();
+#line 32
+ testRunner.Given("User is on the input form Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.When("User enter \"Hello Codebun\" in input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.And("User click to Show button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.Then("User can see the text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -85,4 +155,3 @@ this.ScenarioSetup(scenarioInfo);
 }
 #pragma warning restore
 #endregion
-
